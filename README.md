@@ -10,3 +10,4 @@ DB_PORT =
 
 S_KEY = 
 ```
+and fill it with your data
