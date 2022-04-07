@@ -1,5 +1,7 @@
 # setup project
+
 ### create `.env` file with text below
+
 ```
 DB_ENGINE = 
 DB_NAME = 
@@ -11,3 +13,11 @@ DB_PORT =
 S_KEY = 
 ```
 and fill it with your data
+
+then run commands below
+
+```
+python3 -m venv venv
+pip install -r requirements.txt
+```
+## VOILA!
