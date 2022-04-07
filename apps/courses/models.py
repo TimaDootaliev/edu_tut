@@ -76,7 +76,7 @@ class ItemBase(models.Model):
         return self.title
 
     def render(self):
-        return render_to_string(f'courses/content/{self._meta.model_name}', {'item': self})
+        return render_to_string(f'courses/content/{self._meta.model_name}.html', {'item': self})
 
 
 
