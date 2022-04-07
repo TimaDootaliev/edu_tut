@@ -1,18 +1,20 @@
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
+from django.apps import apps
 from django.contrib.auth.mixins import (LoginRequiredMixin,
                                         PermissionRequiredMixin)
+from django.db.models import Count
+from django.forms.models import modelform_factory
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic.base import TemplateResponseMixin, View
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.apps import apps
-from django.forms.models import modelform_factory
-from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
-from django.db.models import Count
+
+from apps.students.forms import CourseEnrollForm
 
 from .forms import ModuleFormSet
-from .models import Course, Module, Content, Subject
+from .models import Content, Course, Module, Subject
 
 
 class OwnerMixin:
@@ -197,3 +199,7 @@ class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/course/detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(initial={'course': self.object})
+        return context
