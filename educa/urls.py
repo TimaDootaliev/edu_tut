@@ -28,6 +28,7 @@ urlpatterns = [
     path('course/', include('apps.courses.urls')),
     path('', CourseListView.as_view(), name='course_list'),
     path('students/', include('apps.students.urls')),
+    path('api/', include('apps.courses.api.urls', namespace='api')),
 ]
 
 if settings.DEBUG:
