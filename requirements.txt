@@ -7,7 +7,6 @@ Deprecated==1.2.13
 Django==4.0.3
 django-braces==1.15.0
 django-embed-video==1.4.2
-django-memcache-status==2.2
 django-rest-framework==0.1.0
 djangorestframework==3.13.1
 idna==3.3
@@ -24,4 +23,5 @@ requests==2.27.1
 six==1.16.0
 sqlparse==0.4.2
 urllib3==1.26.9
+uWSGI==2.0.20
 wrapt==1.14.0
